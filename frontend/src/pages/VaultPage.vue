@@ -42,7 +42,7 @@
 import { reactive, ref } from 'vue'
 import AppLayout from '../layouts/AppLayout.vue'
 import http from '../api/http'
-import { toast } from '../components/ToastStack.vue'
+import { toast } from '../stores/toast'
 const items = ref([]); const q = ref(''); const show = reactive({}); const modal = ref(false)
 const form = reactive({ id:null, websiteUrl:'', username:'', password:'', description:'' })
 async function load(){ items.value=(await http.get('/tools/vault',{params:{q:q.value||undefined}})).data }

@@ -12,7 +12,7 @@
 import { ref } from 'vue'
 import AppLayout from '../layouts/AppLayout.vue'
 import http from '../api/http'
-import { toast } from '../components/ToastStack.vue'
+import { toast } from '../stores/toast'
 const currentPassword = ref('')
 const newPassword = ref('')
 async function submit(){ await http.post('/auth/change-password',{currentPassword:currentPassword.value,newPassword:newPassword.value}); toast('密码已更新'); currentPassword.value=''; newPassword.value='' }

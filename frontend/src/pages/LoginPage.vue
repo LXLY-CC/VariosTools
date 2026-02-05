@@ -13,7 +13,7 @@
 import { reactive, ref } from 'vue'
 import http from '../api/http'
 import { authStore } from '../stores/auth'
-import { toast } from '../components/ToastStack.vue'
+import { toast } from '../stores/toast'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const loading = ref(false)

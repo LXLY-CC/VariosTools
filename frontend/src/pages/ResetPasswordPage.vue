@@ -12,7 +12,7 @@
 <script setup>
 import { ref } from 'vue'
 import http from '../api/http'
-import { toast } from '../components/ToastStack.vue'
+import { toast } from '../stores/toast'
 const token = ref(''); const newPassword = ref('')
 async function submit(){ await http.post('/auth/reset-password/complete',{token:token.value,newPassword:newPassword.value}); toast('重置成功，请登录') }
 </script>

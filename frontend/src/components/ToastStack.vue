@@ -7,15 +7,5 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
-const toasts = reactive([])
-let nextId = 1
-const toast = (message) => {
-  const id = nextId++
-  toasts.push({ id, message })
-  setTimeout(() => {
-    const idx = toasts.findIndex(t => t.id === id)
-    if (idx >= 0) toasts.splice(idx, 1)
-  }, 2500)
-}
+import { toasts } from '../stores/toast'
 </script>

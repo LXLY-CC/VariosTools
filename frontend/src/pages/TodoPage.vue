@@ -24,7 +24,7 @@
 import { ref } from 'vue'
 import AppLayout from '../layouts/AppLayout.vue'
 import http from '../api/http'
-import { toast } from '../components/ToastStack.vue'
+import { toast } from '../stores/toast'
 const list = ref([]); const draft = ref('')
 async function load(){ list.value = (await http.get('/tools/todo')).data }
 load()
