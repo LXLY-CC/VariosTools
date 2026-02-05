@@ -8,9 +8,9 @@
 
 <script setup>
 import { reactive } from 'vue'
-export const toasts = reactive([])
+const toasts = reactive([])
 let nextId = 1
-export const toast = (message) => {
+const toast = (message) => {
   const id = nextId++
   toasts.push({ id, message })
   setTimeout(() => {
