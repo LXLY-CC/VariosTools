@@ -6,6 +6,7 @@
 - **后端**: Spring Boot 3 + Spring Security + JPA + Flyway + PostgreSQL。
 - **前端**: Vue 3 + Vite + TailwindCSS（轻量，HeroUI 风格留白和卡片化）。
 - **部署策略**: 单个 Docker 服务（前端打包后由 Spring 静态托管），只需再挂一个 Zeabur PostgreSQL，降低维护与资源成本。
+- 前端 Docker 构建使用 `npm install --no-audit --no-fund`（仓库未提交 `package-lock.json`，避免 `npm ci` 报错）。
 - **低资源默认值**:
   - Hikari 连接池最大 5 (`DB_POOL_MAX=5`)
   - JVM `-XX:MaxRAMPercentage=75 -XX:+UseSerialGC`
