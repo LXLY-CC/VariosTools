@@ -15,7 +15,6 @@ import java.security.SecureRandom;
 import java.time.Instant;
 import java.util.Base64;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class AdminService {
@@ -33,10 +32,11 @@ public class AdminService {
         this.resetTokenExpMin = resetTokenExpMin;
     }
 
-    public List<Map<String, Object>> listUsers() {
-        return userRepository.findAll().stream().map(u -> Map.of(
-                "id", u.getId(), "username", u.getUsername(), "role", u.getRole().name(), "enabled", u.isEnabled(),
-                "createdAt", u.getCreatedAt())).toList();
+    public List<AdminDtos.UserSummaryResponse> listUsers() {
+        return userRepository.findAll().stream()
+                .map(u -> new AdminDtos.UserSummaryResponse(
+                        u.getId(), u.getUsername(), u.getRole().name(), u.isEnabled(), u.getCreatedAt()))
+                .toList();
     }
 
     @Transactional

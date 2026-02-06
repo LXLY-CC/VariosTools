@@ -16,7 +16,7 @@ public class AdminController {
     }
 
     @GetMapping("/users")
-    public Object listUsers() { return adminService.listUsers(); }
+    public java.util.List<AdminDtos.UserSummaryResponse> listUsers() { return adminService.listUsers(); }
 
     @PostMapping("/users")
     public ResponseEntity<?> createUser(@Valid @RequestBody AdminDtos.CreateUserRequest request) {
